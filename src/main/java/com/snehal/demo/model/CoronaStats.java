@@ -2,6 +2,7 @@ package com.snehal.demo.model;
 
 public class CoronaStats {
 	
+	//Test comment
 	private String country;
 	private String state;
 	private int latestTotalCases;
