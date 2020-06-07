@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>CoronaVirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"></link>
+  </head>
+  <body  style="margin-top: 50px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;">
+  <h1>Coronavirus Tracker Application</h1>
+  <span style="float:right">@snehalagarwal</span>
+  <p>This application shows the total reported cases in various regions across the globe</p>
+  <div class="jumbotron">
+  <h1 class="display-4" th:text="${totalCases}"></h1>
+  <h4 class="lead" >Total cases as of today around the globe</h4>
+  <h1  class="display-4" th:text="${totalNewCases}"></h1>
+  <h4 class="lead" >Total new cases reported since the previous day</h4>
+  <hr class="my-4"></hr>
+  <h5 th:text="${highestCases}"></h5>
+  <h4 class="lead" >reports the highest number of new cases since the previous day</h4>
+  <!--  <span>India reports</span>
+  <span th:text="${india}"></span>-->
+  <br></br>
+  
+<!--  <form class="form-inline">
+  <div class="form-group mb-2">
+    <label  class="sr-only">Search</label>
+    <input type="text" class="form-control-plaintext" value="Search for the country"></input>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label class="sr-only">Country</label>
+    <input type="text" class="form-control" placeholder="country"></input>
+  </div>
+  <button type="submit" class="btn btn-primary mb-2"><svg class="bi bi-search" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+  <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+</svg>Search country</button>
+</form> -->
+</div>
+    <table class="table table-striped">
+      <tr>
+        
+        <th>Country</th>
+        <th>State</th>
+        <th>Total cases reported</th>
+        <th>New cases reported<svg class="bi bi-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5z"/>
+  <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8 3.707 5.354 6.354a.5.5 0 1 1-.708-.708l3-3z"/>
+</svg></th>
+      </tr>
+      <tr th:each="allStat:${allStats}">
+        <td th:text="${allStat.country}"></td>
+        <td th:text="${allStat.state}"></td>
+        <td th:text="${allStat.latestTotalCases}">0</td>
+        <td th:text="${allStat.diffFromPrevDay}" >0</td>
+        
+         
+      </tr>
+    </table>
+ </body>
+</html>
